@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/materialdesignicons.min.css" rel="stylesheet" media="all">
+    <link href="Styles/materialize.min.css" type="text/css" rel="stylesheet">
+    <link href="Styles/styles.css" type="text/css" rel="stylesheet">
+
+    <script src="../Scripts/jquery-2.1.4.min.js" type="application/javascript"></script>
+    <script src="../Scripts/materialize.min.js" type="application/javascript"></script>
+
+</head>
+<body class="cyan">
+<!-- Form with validation -->
+<div class="col s12 m12 l6">
+    <div class="card-panel">
+        <img src="Images/jol_logo.jpg" alt="" class="responsive-img ">
+        <h4 class="red-text">Register</h4>
+        <br>
+        <div class="row">
+            <form class="col s12">
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="mdi-action-account-circle prefix"></i>
+                        <input id="firstname" type="text" class="validate">
+                        <label for="firstname">First Name</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <i class="mdi-action-account-circle prefix"></i>
+                        <input id="lastname" type="text" class="validate">
+                        <label for="lastname">Last Name</label>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                </div>
+
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="mdi-communication-email prefix"></i>
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="mdi-action-account-circle prefix"></i>
+                        <input id="username" type="text" class="validate tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="Name you will use to login after creating account">
+                        <label for="username">User Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="mdi-action-lock-outline prefix"></i>
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="mdi-action-lock-outline prefix"></i>
+                        <input id="cpassword" type="password" class="validate">
+                        <label for="cpassword">Confirm Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <i class="mdi-action-credit-card prefix"></i>
+                        <input id="creditcard" type="text" class="validate">
+                        <label for="creditcard">Credit Card</label>
+                    </div>
+
+                    <div class="input-field col s4">
+                        <i class="mdi-action-credit-card prefix"></i>
+                        <input id="ccv" type="text" class="validate tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="CCV number located on back of credit card">
+                        <label for="ccv">CCV Number</label>
+                    </div>
+
+                    <i class="mdi-action-credit-card"></i>
+                    <label style="margin-left: 22px;">Credit Card Type</label>
+                    <div class="input-field col s4">
+                        <select class="browser-default">
+                            <option disabled selected>
+                                Choose credit card type
+                            </option>
+                            <option>
+                                Mastercard
+                            </option>
+                            <option>
+                                Visa
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="mdi-action-settings-phone prefix"></i>
+                        <input id="telephone" type="tel" class="validate">
+                        <label for="telephone">Telephone</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <i class="mdi-action-credit-card prefix"></i>
+                        <input id="company" type="text" class="validate">
+                        <label for="company">Company</label>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                                <i class="mdi-content-send right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
