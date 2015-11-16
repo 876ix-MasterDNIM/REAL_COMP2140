@@ -86,12 +86,12 @@
                     <br>
                     <p><label>Select color of advertisement</label></p>
                     <div class="input-field col 12">
-                        <input id="red" type="checkbox" name="red" value="red">
-                        <label for="red">Red</label>
+                        <input id="red"  type="checkbox" name="red" value="red">
+                        <label class="red-text" for="red">Red</label>
                         <input id="yellow" type="checkbox" name="yellow" value="yellow">
-                        <label for="yellow">Yellow</label>
-                        <input id="blue" type="checkbox" name="tuesday" value="Tuesday">
-                        <label for="blue">Blue</label>
+                        <label class="yellow-text"  for="yellow">Yellow</label>
+                        <input id="blue"  type="checkbox" name="tuesday" value="Tuesday">
+                        <label class="blue-text" for="blue">Blue</label>
                     </div>
                 </div>
 
@@ -125,8 +125,8 @@
                 <div class="row">
                     <div class="file-field input-field">
                         <div class="btn">
-                            <span>Upload advertisement</span>
-                            <input id="file" type="file">
+                            <span id="filespan">Upload advertisement</span>
+                            <input id="file" class="red" type="file">
                         </div>
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text">
@@ -150,12 +150,16 @@
 <script>
     $('#yes').click(function ()
     {
-        $('#file').attr('disabled', 'disabled')
+        var file =  $('#file');
+        file.attr('disabled', 'disabled');
+        document.getElementById('filespan').innerText = 'DISABLED';
     });
 
     $('#no').click(function ()
     {
-        $('#file').removeAttr('disabled')
+        var file =  $('#file');
+        file.removeAttr('disabled');
+        document.getElementById('filespan').innerText = 'Upload advertisement';
     });
 
     $('.datepicker').pickadate({
