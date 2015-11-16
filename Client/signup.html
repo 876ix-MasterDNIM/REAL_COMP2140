@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sign up</title>
     <link href="styles/materialize.css" type="text/css" rel="stylesheet">
     <link href="styles/styles.css" type="text/css" rel="stylesheet">
     <script src="scripts/jquery-2.1.4.min.js" type="application/javascript"></script>
@@ -22,13 +22,13 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="mdi-action-account-circle prefix"></i>
-                        <input id="firstname" type="text" class="validate">
+                        <input name="first" id="firstname" type="text" class="validate">
                         <label for="firstname">First Name</label>
                     </div>
 
                     <div class="input-field col s6">
                         <i class="mdi-action-account-circle prefix"></i>
-                        <input id="lastname" type="text" class="validate">
+                        <input name="last" id="lastname" type="text" class="validate">
                         <label for="lastname">Last Name</label>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="mdi-communication-email prefix"></i>
-                        <input id="email" type="email" class="validate">
+                        <input name="email" id="email" type="email" class="validate">
                         <label for="email">Email</label>
                     </div>
                     <div class="input-field col s6">
@@ -66,21 +66,21 @@
                 <div class="row">
                     <div class="input-field col s4">
                         <i class="mdi-action-credit-card prefix"></i>
-                        <input id="creditcard" type="text" class="validate">
+                        <input name="cc" id="creditcard" type="text" class="validate">
                         <label for="creditcard">Credit Card</label>
                     </div>
 
                     <div class="input-field col s4">
                         <i class="mdi-action-credit-card prefix"></i>
-                        <input id="ccv" type="text" class="validate tooltipped" data-position="bottom" data-delay="50"
+                        <input name="ccv" id="ccv" type="text" class="validate tooltipped" data-position="bottom" data-delay="50"
                                data-tooltip="CCV number located on back of credit card">
                         <label for="ccv">CCV Number</label>
                     </div>
 
-                    <i class="mdi-action-credit-card"></i>
-                    <label style="margin-left: 22px;">Credit Card Type</label>
+                    <label style="margin-left: 14px;"><i class="mdi-action-credit-card"></i>
+                        Credit Card Type</label>
                     <div class="input-field col s4">
-                        <select class="browser-default">
+                        <select class="browser-default" name="ctype">
                             <option disabled selected>
                                 Choose credit card type
                             </option>
@@ -97,13 +97,13 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="mdi-action-settings-phone prefix"></i>
-                        <input id="telephone" type="tel" class="validate">
+                        <input name="telephone" id="telephone" type="tel" class="validate">
                         <label for="telephone">Telephone</label>
                     </div>
 
                     <div class="input-field col s6">
                         <i class="mdi-action-credit-card prefix"></i>
-                        <input id="company" type="text" class="validate">
+                        <input name="company" id="company" type="text" class="validate">
                         <label for="company">Company</label>
                     </div>
                 </div>
@@ -122,5 +122,8 @@
         </div>
     </div>
 </div>
+<script>
+    $('select').material_select();
+</script>
 </body>
 </html>
