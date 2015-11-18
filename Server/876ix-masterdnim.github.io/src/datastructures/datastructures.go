@@ -18,3 +18,21 @@ type Signup struct {
 	Telephone         string
 	Company           string
 }
+
+type Purchase struct {
+	Firstname    string
+	Lastname     string
+	CompanyName  string
+	Contact      string
+	StartDate    string
+	EndDate      string
+	ShowDates    string
+	AdColors     string
+	Size         string
+	DesignForYou string
+}
+
+type Report struct {
+	PurchaseInfo Purchase
+	Price        float64
+}

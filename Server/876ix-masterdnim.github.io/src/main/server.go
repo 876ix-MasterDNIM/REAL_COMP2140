@@ -6,11 +6,12 @@ import (
 	"../utilities/logger"
 	"../utilities/databaseutils"
 	"../utilities/servehtml"
+	"html/template"
 	"fmt"
 )
 
 var userLoggedIn bool = false
-
+var purchaseReport datastructures.Report
 func main() {
 
 	mux := http.NewServeMux()
@@ -18,6 +19,7 @@ func main() {
 	mux.HandleFunc("/signup", signup)
 	mux.HandleFunc("/login", login)
 	mux.HandleFunc("/purchase", purchase)
+	mux.HandleFunc("/report", report)
 
 	mux.Handle("/", http.FileServer(http.Dir("Client")))
 
@@ -27,18 +29,45 @@ func main() {
 	http.ListenAndServe(":8000", mux)
 }
 
+func report (response http.ResponseWriter, request *http.Request) {
+	var method string = request.Method
+	switch method {
+
+	case "GET":
+		if userLoggedIn {
+			tpl, err := template.ParseFiles("/Users/LeaderOfTheNewSchool/WebstormProjects/REAL_COMP2140/Client/report.html")
+
+			if err != nil {
+				panic(err)
+			} else {
+				err = tpl.Execute(response, purchaseReport)
+			}
+		} else {
+			http.Redirect(response, request, "/login", 302)
+		}
+
+
+	case "POST":
+
+	}
+}
 func signup (response http.ResponseWriter, request *http.Request) {
 	var method string = request.Method
 	switch method {
 
 	case "GET":
-		//Path of signup.html file to be served on get requests.
 		path := "/Users/LeaderOfTheNewSchool/WebstormProjects/REAL_COMP2140/Client/signup.html"
 		servehtml.ServeHtml(path, response)
 
 	case "POST":
-		var test datastructures.Signup = formparser.ParseSignUpForm(request)
-		logger.LogSignup(&test)
+		var user datastructures.Signup = formparser.ParseSignUpForm(request)
+
+		if databaseutils.EmailExists(&user) {
+			response.Write(
+				[]byte("Email already exists so please go back and fill out the form again, this time with a different email address"))
+		} else {
+			databaseutils.CreateUser(&user)
+		}
 	}
 }
 
@@ -48,7 +77,6 @@ func login (response http.ResponseWriter, request *http.Request) {
 	switch method {
 
 	case "GET":
-		//Path of login.html file to be served on get requests.
 		path := "/Users/LeaderOfTheNewSchool/WebstormProjects/REAL_COMP2140/Client/login.html"
 		servehtml.ServeHtml(path, response)
 
@@ -76,62 +104,11 @@ func purchase (response http.ResponseWriter, request *http.Request) {
 		} else {
 			http.Redirect(response, request, "/login", 302)
 		}
-		//http.Redirect(response, request, "/login", 302)
-
 
 	case "POST":
-		//TODO
-		fmt.Println("todo post")
+		var purchase datastructures.Purchase = formparser.ParsePurchaseForm(request)
+		purchaseReport.PurchaseInfo = purchase
+		fmt.Println(purchaseReport)
+		http.Redirect(response, request, "/report", 302)
 	}
 }
-
-//	dbSession, err := mgo.Dial("127.0.0.1")
-//
-//	if err != nil {
-//		panic(err)
-//	}
-//
-//	defer dbSession.Close()
-//
-//	dbSession.SetMode(mgo.Monotonic, true)
-//
-//	c := dbSession.DB("comp2140").C("dummyuser")
-//
-////	err = c.Insert(&Dummy{Username: "comp2140", Password: "comp2140also"}, &Dummy{Username: "comp2140",
-////	Password:"comp2140yetagain"})
-////
-////	if err != nil {
-////		panic(err)
-////	}
-//
-//	var result []Dummy
-//	c.Find(bson.M{"username" : "comp2140"}).All(&result)
-//	for _, dummyuser := range result {
-//		fmt.Println(dummyuser.Password)
-//	}
-//}
-//
-//type Dummy struct {
-//	ID bson.ObjectId `bson:"_id,omitempty"`
-//	Username string
-//	Password string
-//}
-
-//	if request.Method == "GET" {
-////		//var path string = string(request.URL.Path[1:])
-////		t, _ := ioutil.ReadFile("login.html")
-////		//var contentType string = addContentType(path)
-////		response.Header().Set("Content-Type", "text/html")
-////		fmt.Println(response.Header().Get("Content-Type"))
-//
-//		fmt.Println(request.URL.Path)
-//
-////		response.Write(t)
-//
-//	} else {
-//		request.ParseForm()
-//		fmt.Println("username:", request.Form["username"])
-//		fmt.Println("password:", request.Form["password"])
-//
-//	}
-

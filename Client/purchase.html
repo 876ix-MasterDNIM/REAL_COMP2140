@@ -51,46 +51,48 @@
                     </div>
                     <div class="input-field col s6">
                         <label>Select end date</label>
-                        <input id="enddate" type="date" class="datepicker">
+                        <input name="enddate" id="enddate" type="date" class="datepicker">
                     </div>
                 </div>
 
                 <div class="row">
                     <label>Select days advertisement should be publicized</label>
                     <div class="input-field col s12">
-                        <input id="sun" type="checkbox" name="sunday">
+                        <input id="sun" type="checkbox" name="Sunday">
                         <label for="sun">Sunday</label>
 
 
-                        <input id="mon" type="checkbox" name="monday">
+                        <input id="mon" type="checkbox" name="Monday">
                         <label for="mon">Monday</label>
 
-                        <input id="tue" type="checkbox" name="tuesday">
+                        <input id="tue" type="checkbox" name="Tuesday">
                         <label for="tue">Tuesday</label>
-<p>
-                        <input id="wed" type="checkbox" name="wednesday">
-                        <label for="wed">Wednesday</label>
+                        <p>
+                            <input id="wed" type="checkbox" name="Wednesday">
+                            <label for="wed">Wednesday</label>
 
-                        <input id="thur" type="checkbox" name="thursday">
-                        <label for="thur">Thursday</label>
+                            <input id="thur" type="checkbox" name="Thursday">
+                            <label for="thur">Thursday</label>
 
-                        <input id="fri" type="checkbox" name="friday">
-                        <label for="fri">Friday</label>
+                            <input id="fri" type="checkbox" name="Friday">
+                            <label for="fri">Friday</label>
 
-                        <input id="sat" type="checkbox" name="saturday">
-                        <label for="sat">Saturday</label>
-</p>
+                            <input id="sat" type="checkbox" name="Saturday">
+                            <label for="sat">Saturday</label>
+                        </p>
                     </div>
                 </div>
                 <div class="row">
                     <br>
-                    <p><label>Select color of advertisement</label></p>
+                    <p>
+                        <label>Select color of advertisement</label>
+                    </p>
                     <div class="input-field col 12">
-                        <input id="red"  type="checkbox" name="red" value="red">
+                        <input id="red" type="checkbox" name="Red">
                         <label class="red-text" for="red">Red</label>
-                        <input id="yellow" type="checkbox" name="yellow" value="yellow">
-                        <label class="yellow-text"  for="yellow">Yellow</label>
-                        <input id="blue"  type="checkbox" name="tuesday" value="Tuesday">
+                        <input id="yellow" type="checkbox" name="Yellow">
+                        <label class="yellow-text" for="yellow">Yellow</label>
+                        <input id="blue" type="checkbox" name="Blue">
                         <label class="blue-text" for="blue">Blue</label>
                     </div>
                 </div>
@@ -148,16 +150,14 @@
     </div>
 </div>
 <script>
-    $('#yes').click(function ()
-    {
-        var file =  $('#file');
+    $('#yes').click(function() {
+        var file = $('#file');
         file.attr('disabled', 'disabled');
         document.getElementById('filespan').innerText = 'DISABLED';
     });
 
-    $('#no').click(function ()
-    {
-        var file =  $('#file');
+    $('#no').click(function() {
+        var file = $('#file');
         file.removeAttr('disabled');
         document.getElementById('filespan').innerText = 'Upload advertisement';
     });

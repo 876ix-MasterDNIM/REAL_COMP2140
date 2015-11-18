@@ -33,3 +33,51 @@ func ParseSignUpForm(request *http.Request) datastructures.Signup {
 
 	return *signupStruct
 }
+
+func ParsePurchaseForm(request *http.Request) datastructures.Purchase {
+	request.ParseForm()
+
+	var purchaseStruct = new(datastructures.Purchase)
+	purchaseStruct.Firstname = strings.Join(request.Form["first"], "")
+	purchaseStruct.Lastname = strings.Join(request.Form["last"], "")
+	purchaseStruct.CompanyName = strings.Join(request.Form["cname"], "")
+	purchaseStruct.Contact = strings.Join(request.Form["cnumber"], "")
+	purchaseStruct.StartDate = strings.Join(request.Form["startdate"], "")
+	purchaseStruct.EndDate = strings.Join(request.Form["enddate"], "")
+	purchaseStruct.ShowDates = days(request)
+	purchaseStruct.AdColors = colors(request)
+	purchaseStruct.Size = strings.Join(request.Form["size"], "")
+	purchaseStruct.DesignForYou = strings.Join(request.Form["ownad"], "")
+
+
+	return *purchaseStruct
+}
+
+func colors (request *http.Request) string {
+	colors := []string{"Red", "Yellow", "Blue"}
+	trueColors := make([]string, 3)
+
+	for i := 0; i < len(colors); i++ {
+		temp := strings.Join(request.Form[colors[i]], "")
+		if temp == "on" {
+			trueColors = append(trueColors, colors[i])
+		}
+	}
+
+	return strings.TrimSpace(strings.Join(trueColors, " "))
+}
+
+func days(request *http.Request) string {
+	days := []string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
+	trueDays := make([]string, 6)
+
+
+	for i := 0; i < len(days); i++ {
+		temp := strings.Join(request.Form[days[i]], "")
+		if temp == "on" {
+			trueDays = append(trueDays, days[i])
+		}
+	}
+
+	return strings.TrimSpace(strings.Join(trueDays, " "))
+}

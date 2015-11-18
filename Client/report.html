@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <link href="styles/materialize.css" type="text/css" rel="stylesheet">
+    <link href="styles/styles.css" type="text/css" rel="stylesheet">
+    <script src="scripts/jquery-2.1.4.min.js" type="application/javascript"></script>
+    <script src="scripts/materialize.min.js" type="application/javascript"></script>
+    <style>
+        p {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="teal darken-3">
+<div class="card-panel">
+    <img src="images/jol_logo.jpg" alt="" class="responsive-img ">
+    <h4 class="red-text">Report / Summary of Purchase</h4>
+</div>
+<div style="width:800px; margin:0 auto;">
+    <ul class="collapsible s12" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header">Firstname</div>
+            <div class="collapsible-body">
+                <p id="first">{{.PurchaseInfo.Firstname}}</p>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">Lastname</div>
+            <div class="collapsible-body">
+                <p>{{.PurchaseInfo.Lastname}}</p>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">Company name</div>
+            <div class="collapsible-body">
+                <p>{{.PurchaseInfo.CompanyName}}</p>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">Company number</div>
+            <div class="collapsible-body">
+                <p>{{.PurchaseInfo.Contact}}</p>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">Start date</div>
+            <div class="collapsible-body">
+                <p>{{.PurchaseInfo.StartDate}}</p>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">End date</div>
+            <div class="collapsible-body">
+                <p>{{.PurchaseInfo.EndDate}}</p>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">Days advertisement is supposed to be shown</div>
+            <div class="collapsible-body">
+                <p>{{.PurchaseInfo.ShowDates}}</p>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">Colors chosen for ad</div>
+            <div class="collapsible-body">
+                <p>{{.PurchaseInfo.AdColors}}</p>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">Size of ad</div>
+            <div class="collapsible-body">
+                <p>{{.PurchaseInfo.Size}}</p>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">Should we design your advertisement</div>
+            <div class="collapsible-body">
+                <p>{{.PurchaseInfo.DesignForYou}}</p>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="card-panel">
+    <h6 class="red-text">Total Cost: {{.PurchaseInfo.Price}}</h6>
+    <br>
+    <br>
+    <h6 class="red-text">WE THANK YOU FOR YOUR SUPPORT AND LOOK FORWARD TO SERVING YOU IN THE FUTURE</h6>
+</div>
+
+
+</body>
+
+</html>
