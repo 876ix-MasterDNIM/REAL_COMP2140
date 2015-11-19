@@ -40,6 +40,8 @@ func report (response http.ResponseWriter, request *http.Request) {
 			if err != nil {
 				panic(err)
 			} else {
+				//FIXME
+				purchaseReport.Price = 0.0
 				err = tpl.Execute(response, purchaseReport)
 			}
 		} else {
@@ -48,7 +50,39 @@ func report (response http.ResponseWriter, request *http.Request) {
 
 
 	case "POST":
+		var html string = `<!DOCTYPE html>
+			<html lang="en">
 
+			<head>
+			<meta charset="UTF-8">
+			<title>Report</title>
+			<link href="styles/materialize.css" type="text/css" rel="stylesheet">
+			<link href="styles/styles.css" type="text/css" rel="stylesheet">
+			<script src="scripts/jquery-2.1.4.min.js" type="application/javascript"></script>
+			<script src="scripts/materialize.min.js" type="application/javascript"></script>
+			<style>
+			p {
+			color: #fff;
+			}
+			</style>
+			</head>
+
+			<body class="teal darken-3">
+
+			<div class="card-panel">
+				<h6 class="red-text">WE THANK YOU FOR YOUR SUPPORT AND LOOK FORWARD TO SERVING YOU IN THE FUTURE</h6>
+			</div>
+
+			</body>
+			</html>`
+
+		tpl, err := template.New("response").Parse(html)
+
+		if err != nil {
+			panic(err)
+		} else {
+			err = tpl.Execute(response, "")
+		}
 	}
 }
 func signup (response http.ResponseWriter, request *http.Request) {

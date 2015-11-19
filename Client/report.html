@@ -14,8 +14,7 @@
         }
     </style>
 </head>
-
-<body class="teal darken-3">
+<body class="cyan">
 <div class="card-panel">
     <img src="images/jol_logo.jpg" alt="" class="responsive-img ">
     <h4 class="red-text">Report / Summary of Purchase</h4>
@@ -84,13 +83,19 @@
         </li>
     </ul>
 </div>
-<div class="card-panel">
-    <h6 class="red-text">Total Cost: {{.PurchaseInfo.Price}}</h6>
-    <br>
-    <br>
-    <h6 class="red-text">WE THANK YOU FOR YOUR SUPPORT AND LOOK FORWARD TO SERVING YOU IN THE FUTURE</h6>
-</div>
 
+<div class="card-panel">
+    <h6 class="red-text">Total Cost: {{.Price}}</h6>
+    <br>
+    <br>
+    <div class="row">
+        <form class="col s12" method="post" action="/report">
+            <button id="submit" class="right btn cyan waves-effect waves-light" type="submit" name="action">
+                Confirm Purchase
+            </button>
+        </form>
+    </div>
+</div>
 
 </body>
 
