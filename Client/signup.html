@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,13 @@
     <link href="styles/materialize.css" type="text/css" rel="stylesheet">
     <link href="styles/styles.css" type="text/css" rel="stylesheet">
     <script src="scripts/jquery-2.1.4.min.js" type="application/javascript"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+
     <script src="scripts/materialize.min.js" type="application/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="scripts/signup.js"></script>
 
 </head>
 <body class="cyan">
@@ -17,7 +23,7 @@
         <h4 class="red-text">Register</h4>
         <br>
         <div class="row">
-            <form class="col s12" method="post" action="/signup">
+            <form class="col s12" id="signupform" method="post" action="/signup">
 
                 <div class="row">
                     <div class="input-field col s6">
@@ -59,7 +65,7 @@
                     </div>
                     <div class="input-field col s6">
                         <i class="mdi-action-lock-outline prefix"></i>
-                        <input id="cpassword" type="password" class="validate">
+                        <input name="cpassword" id="cpassword" type="password" class="validate">
                         <label for="cpassword">Confirm Password</label>
                     </div>
                 </div>
@@ -72,9 +78,9 @@
 
                     <div class="input-field col s4">
                         <i class="mdi-action-credit-card prefix"></i>
-                        <input name="ccv" id="ccv" type="text" class="validate tooltipped" data-position="bottom" data-delay="50"
-                               data-tooltip="CCV number located on back of credit card">
-                        <label for="ccv">CCV Number</label>
+                        <input name="cvv" id="cvv" type="text" class="validate tooltipped" data-position="bottom" data-delay="50"
+                               data-tooltip="CVV number located on back of credit card">
+                        <label for="ccv">CVV Number</label>
                     </div>
 
                     <label style="margin-left: 14px;"><i class="mdi-action-credit-card"></i>
@@ -84,10 +90,10 @@
                             <option disabled selected>
                                 Choose credit card type
                             </option>
-                            <option>
+                            <option value="1">
                                 Mastercard
                             </option>
-                            <option>
+                            <option value="2">
                                 Visa
                             </option>
                         </select>
@@ -123,7 +129,7 @@
     </div>
 </div>
 <script>
-    $('select').material_select();
+    // $('select').material_select();
 </script>
 </body>
 </html>
