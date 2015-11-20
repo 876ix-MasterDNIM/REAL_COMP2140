@@ -8,8 +8,8 @@
     <link href="styles/styles.css" type="text/css" rel="stylesheet">
     <script src="scripts/jquery-2.1.4.min.js" type="application/javascript"></script>
     <script src="scripts/materialize.min.js" type="application/javascript"></script>
-
-
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="scripts/purchase.js"></script>
 </head>
 
 <body class="cyan">
@@ -20,7 +20,7 @@
         <h4 class="red-text">Advertisement Request Form</h4>
         <br>
         <div class="row">
-            <form class="col s12" method="post" action="/purchase">
+            <form  class="col s12" id="purchaseform" method="post" action="/purchase">
 
                 <div class="row">
                     <div class="input-field col s6">
@@ -56,9 +56,10 @@
                 </div>
 
                 <div class="row">
-                    <label>Select days advertisement should be publicized</label>
+                    <label id="info">Select days advertisement should be publicized</label>
                     <div class="input-field col s12">
-                        <input id="sun" type="checkbox" name="Sunday">
+                        <input id="sun" type="checkbox" name="Sunday" class="required"
+                        title="Please check at least one day">
                         <label for="sun">Sunday</label>
 
 
@@ -88,7 +89,7 @@
                         <label>Select color of advertisement</label>
                     </p>
                     <div class="input-field col 12">
-                        <input id="red" type="checkbox" name="Red">
+                        <input id="red" type="checkbox" name="Red" class"required" title="Please select a color">
                         <label class="red-text" for="red">Red</label>
                         <input id="yellow" type="checkbox" name="Yellow">
                         <label class="yellow-text" for="yellow">Yellow</label>
@@ -117,7 +118,8 @@
                 <div class="row">
                     <label>Do you want us to design your advertisment</label>
                     <div class="input-field col s12">
-                        <input id="yes" type="radio" name="ownad" value="yes">
+                        <input id="yes" type="radio" name="ownad" value="yes" class="required"
+                        title="Please select an option">
                         <label for="yes">Yes</label>
                         <input id="no" type="radio" name="ownad" value="no">
                         <label for="no">No</label>
