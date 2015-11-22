@@ -1,20 +1,31 @@
 package formparser
+
 import (
-	"../../datastructures"
 	"net/http"
+	"strconv"
 	"strings"
+
+	"../../datastructures"
 )
 
+/**
+ * Parses login form
+ * @param {[type]} request *http.Request [description]
+ */
 func ParseLoginForm(request *http.Request) datastructures.Login {
 	request.ParseForm()
 
-	var loginStruct = new (datastructures.Login)
+	var loginStruct = new(datastructures.Login)
 	loginStruct.Username = strings.Join(request.Form["username"], "")
 	loginStruct.Password = strings.Join(request.Form["password"], "")
 
 	return *loginStruct
 }
 
+/**
+ * Parses sign up form
+ * @param {[type]} request *http.Request [description]
+ */
 func ParseSignUpForm(request *http.Request) datastructures.Signup {
 	request.ParseForm()
 
@@ -34,6 +45,10 @@ func ParseSignUpForm(request *http.Request) datastructures.Signup {
 	return *signupStruct
 }
 
+/**
+ * Parses purchase form
+ * @param {[type]} request *http.Request [description]
+ */
 func ParsePurchaseForm(request *http.Request) datastructures.Purchase {
 	request.ParseForm()
 
@@ -46,14 +61,19 @@ func ParsePurchaseForm(request *http.Request) datastructures.Purchase {
 	purchaseStruct.EndDate = strings.Join(request.Form["enddate"], "")
 	purchaseStruct.ShowDates = days(request)
 	purchaseStruct.AdColors = colors(request)
-	purchaseStruct.Size = strings.Join(request.Form["size"], "")
+	purchaseStruct.Columns, _ = strconv.ParseFloat(strings.Join(request.Form["columns"], ""), 10)
+	purchaseStruct.Rows, _ = strconv.ParseFloat(strings.Join(request.Form["rows"], ""), 10)
 	purchaseStruct.DesignForYou = strings.Join(request.Form["ownad"], "")
-
 
 	return *purchaseStruct
 }
 
-func colors (request *http.Request) string {
+/**
+ * Retrieves colors requested on purchase form
+ * @param  {[type]} request *http.Request [description]
+ * @return {[type]}         [description]
+ */
+func colors(request *http.Request) string {
 	colors := []string{"Red", "Yellow", "Blue"}
 	trueColors := make([]string, 3)
 
@@ -67,10 +87,14 @@ func colors (request *http.Request) string {
 	return strings.TrimSpace(strings.Join(trueColors, " "))
 }
 
+/**
+ * Retrieves days advertisement is requested on purchase form
+ * @param  {[type]} request *http.Request [description]
+ * @return {[type]}         [description]
+ */
 func days(request *http.Request) string {
 	days := []string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
 	trueDays := make([]string, 6)
-
 
 	for i := 0; i < len(days); i++ {
 		temp := strings.Join(request.Form[days[i]], "")

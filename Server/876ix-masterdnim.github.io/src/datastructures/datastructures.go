@@ -1,10 +1,16 @@
 package datastructures
 
+/**
+ * Structure to facilitate log in function
+ */
 type Login struct {
 	Username string
 	Password string
 }
 
+/**
+ * Structure to represent information collected on the sign up form
+ */
 type Signup struct {
 	Firstname         string
 	Lastname          string
@@ -19,6 +25,9 @@ type Signup struct {
 	Company           string
 }
 
+/**
+ * Structure to represent information collected on the purchase form
+ */
 type Purchase struct {
 	Firstname    string
 	Lastname     string
@@ -28,11 +37,26 @@ type Purchase struct {
 	EndDate      string
 	ShowDates    string
 	AdColors     string
-	Size         string
+	Columns      float64
+	Rows         float64
 	DesignForYou string
 }
 
+/**
+ * Structure to represent a completed purchase
+ */
 type Report struct {
 	PurchaseInfo Purchase
 	Price        float64
+}
+
+/**
+ * Structure to represent the rates of various advertisement customisations
+ * retrieved from company's database
+ */
+type CompanyInfo struct {
+	Tax          float64
+	WeekdayRate  float64
+	SaturdayRate float64
+	SundayRate   float64
 }

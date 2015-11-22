@@ -1,4 +1,5 @@
 package servehtml
+
 import (
 	"path/filepath"
 	"mime"
@@ -6,6 +7,11 @@ import (
 	"net/http"
 )
 
+/**
+ * Serves html file to browser
+ * @param {[type]} path     string              [description]
+ * @param {[type]} response http.ResponseWriter [description]
+ */
 func ServeHtml (path string, response http.ResponseWriter) {
 	page, err := ioutil.ReadFile(path)
 

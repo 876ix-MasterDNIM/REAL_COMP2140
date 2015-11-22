@@ -1,10 +1,41 @@
 package databaseutils
+
 import (
-	"gopkg.in/mgo.v2"
 	"../../datastructures"
+	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
 
+/**
+ * Retrieves company rates from database
+ */
+func GetCompanyInfo() datastructures.CompanyInfo {
+	dbSession, err := mgo.Dial("127.0.0.1")
+
+	if err != nil {
+		panic(err)
+	}
+
+	defer dbSession.Close()
+
+	dbSession.SetMode(mgo.Monotonic, true)
+	collection := dbSession.DB("comp2140").C("company")
+
+	var result datastructures.CompanyInfo
+
+	err = collection.Find(nil).One(&result)
+
+	if err != nil {
+		panic(err)
+	} else {
+		return result
+	}
+}
+
+/**
+ * Creates a user in database
+ * @param {[type]} user *datastructures.Signup [description]
+ */
 func CreateUser(user *datastructures.Signup) {
 	dbSession, err := mgo.Dial("127.0.0.1")
 
@@ -24,7 +55,11 @@ func CreateUser(user *datastructures.Signup) {
 	}
 }
 
-func CreateReport(report datastructures.Report) {
+/**
+ * Creates a report in database
+ * @param {[type]} report *datastructures.Report [description]
+ */
+func CreateReport(report *datastructures.Report) {
 	dbSession, err := mgo.Dial("127.0.0.1")
 
 	if err != nil {
@@ -43,9 +78,12 @@ func CreateReport(report datastructures.Report) {
 	}
 }
 
+/**
+ * Facilitates authentication of users
+ * @param {[type]} user *datastructures.Login [description]
+ */
 func Authenticate(user *datastructures.Login) bool {
 	dbSession, err := mgo.Dial("127.0.0.1")
-
 
 	if err != nil {
 		panic(err)
@@ -58,7 +96,7 @@ func Authenticate(user *datastructures.Login) bool {
 
 	var result datastructures.Login
 
-	err = collection.Find(bson.M{"username" : user.Username, "password" : user.Password}).One(&result)
+	err = collection.Find(bson.M{"username": user.Username, "password": user.Password}).One(&result)
 
 	if err != nil {
 		return false
@@ -67,6 +105,10 @@ func Authenticate(user *datastructures.Login) bool {
 	}
 }
 
+/**
+ * Checks if email already exists in database
+ * @param {[type]} user *datastructures.Signup [description]
+ */
 func EmailExists(user *datastructures.Signup) bool {
 	dbSession, err := mgo.Dial("127.0.0.1")
 
@@ -81,7 +123,7 @@ func EmailExists(user *datastructures.Signup) bool {
 
 	var result datastructures.Signup
 
-	err = collection.Find(bson.M{"email" : user.Email}).One(&result)
+	err = collection.Find(bson.M{"email": user.Email}).One(&result)
 
 	if err != nil {
 		return false

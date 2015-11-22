@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Advertisement request form</title>
-    <link href="styles/materialize.css" type="text/css" rel="stylesheet">
-    <link href="styles/styles.css" type="text/css" rel="stylesheet">
-    <script src="scripts/jquery-2.1.4.min.js" type="application/javascript"></script>
-    <script src="scripts/materialize.min.js" type="application/javascript"></script>
+	<meta charset="UTF-8">
+	<title>Advertisement request form</title>
+	<link href="styles/materialize.css" type="text/css" rel="stylesheet">
+	<link href="styles/styles.css" type="text/css" rel="stylesheet">
+	<script src="scripts/jquery-2.1.4.min.js" type="application/javascript"></script>
+	<script src="scripts/materialize.min.js" type="application/javascript"></script>
 
 
 </head>
@@ -15,157 +15,158 @@
 <body class="cyan">
 <!-- Form with validation -->
 <div class="col s12 m12 l6">
-    <div class="card-panel">
-        <img src="images/jol_logo.jpg" alt="" class="responsive-img ">
-        <h4 class="red-text">Advertisement Request Form</h4>
-        <br>
-        <div class="row">
-            <form class="col s12" method="post" action="/purchase">
+	<div class="card-panel">
+		<img src="images/jol_logo.jpg" alt="" class="responsive-img ">
+		<h4 class="red-text">Advertisement Request Form</h4>
+		<br>
+		<div class="row">
+			<form class="col s12" method="post" action="/purchase">
 
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input name="first" id="firstname" type="text" class="validate">
-                        <label for="firstname">First Name</label>
-                    </div>
+				<div class="row">
+					<div class="input-field col s6">
+						<input name="first" id="firstname" type="text" class="validate">
+						<label for="firstname">First Name</label>
+					</div>
 
-                    <div class="input-field col s6">
-                        <input name="last" id="lastname" type="text" class="validate">
-                        <label for="lastname">Last Name</label>
-                    </div>
-                </div>
+					<div class="input-field col s6">
+						<input name="last" id="lastname" type="text" class="validate">
+						<label for="lastname">Last Name</label>
+					</div>
+				</div>
 
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input name="cname" id="cname" type="text" class="validate">
-                        <label for="cname">Company name</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input name="cnumber" id="cnumber" type="tel" class="validate">
-                        <label for="cnumber">Contact number</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <label>Select start date</label>
-                        <input name="startdate" id="startdate" type="date" class="datepicker">
-                    </div>
-                    <div class="input-field col s6">
-                        <label>Select end date</label>
-                        <input name="enddate" id="enddate" type="date" class="datepicker">
-                    </div>
-                </div>
+				<div class="row">
+					<div class="input-field col s6">
+						<input name="cname" id="cname" type="text" class="validate">
+						<label for="cname">Company name</label>
+					</div>
+					<div class="input-field col s6">
+						<input name="cnumber" id="cnumber" type="tel" class="validate">
+						<label for="cnumber">Contact number</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s6">
+						<label>Select start date</label>
+						<input name="startdate" id="startdate" type="date" class="datepicker">
+					</div>
+					<div class="input-field col s6">
+						<label>Select end date</label>
+						<input name="enddate" id="enddate" type="date" class="datepicker">
+					</div>
+				</div>
 
-                <div class="row">
-                    <label>Select days advertisement should be publicized</label>
-                    <div class="input-field col s12">
-                        <input id="sun" type="checkbox" name="Sunday">
-                        <label for="sun">Sunday</label>
+				<div class="row">
+					<label>Select days advertisement should be publicized</label>
+					<div class="input-field col s12">
+						<input id="sun" type="checkbox" name="Sunday">
+						<label for="sun">Sunday</label>
 
 
-                        <input id="mon" type="checkbox" name="Monday">
-                        <label for="mon">Monday</label>
+						<input id="mon" type="checkbox" name="Monday">
+						<label for="mon">Monday</label>
 
-                        <input id="tue" type="checkbox" name="Tuesday">
-                        <label for="tue">Tuesday</label>
-                        <p>
-                            <input id="wed" type="checkbox" name="Wednesday">
-                            <label for="wed">Wednesday</label>
+						<input id="tue" type="checkbox" name="Tuesday">
+						<label for="tue">Tuesday</label>
+						<p>
+							<input id="wed" type="checkbox" name="Wednesday">
+							<label for="wed">Wednesday</label>
 
-                            <input id="thur" type="checkbox" name="Thursday">
-                            <label for="thur">Thursday</label>
+							<input id="thur" type="checkbox" name="Thursday">
+							<label for="thur">Thursday</label>
 
-                            <input id="fri" type="checkbox" name="Friday">
-                            <label for="fri">Friday</label>
+							<input id="fri" type="checkbox" name="Friday">
+							<label for="fri">Friday</label>
 
-                            <input id="sat" type="checkbox" name="Saturday">
-                            <label for="sat">Saturday</label>
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <br>
-                    <p>
-                        <label>Select color of advertisement</label>
-                    </p>
-                    <div class="input-field col 12">
-                        <input id="red" type="checkbox" name="Red">
-                        <label class="red-text" for="red">Red</label>
-                        <input id="yellow" type="checkbox" name="Yellow">
-                        <label class="yellow-text" for="yellow">Yellow</label>
-                        <input id="blue" type="checkbox" name="Blue">
-                        <label class="blue-text" for="blue">Blue</label>
-                    </div>
-                </div>
+							<input id="sat" type="checkbox" name="Saturday">
+							<label for="sat">Saturday</label>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<br>
+					<p>
+						<label>Select color of advertisement</label>
+					</p>
+					<div class="input-field col 12">
+						<input id="red" type="checkbox" name="Red">
+						<label class="red-text" for="red">Red</label>
+						<input id="yellow" type="checkbox" name="Yellow">
+						<label class="yellow-text" for="yellow">Yellow</label>
+						<input id="blue" type="checkbox" name="Blue">
+						<label class="blue-text" for="blue">Blue</label>
+					</div>
+				</div>
 
-                <div class="row">
-                    <label>Select size of advertisement</label>
-                    <div class="input-field col s12">
-                        <select name="size" class="browser-default">
-                            <option disabled selected>
-                                Size
-                            </option>
-                            <option>
-                                1260x760
-                            </option>
-                            <option>
-                                1080x720
-                            </option>
-                        </select>
-                    </div>
-                </div>
+				<div class="row">
+					<label>Number of columns advertisement should occupy</label>
+					<div class="input-field col s12">
+						<p class="range-field">
+							 <input type="range" id="columns" name="columns" min="0" max="10" />
+						</p>
+					</div>
+				</div>
+				
+				<div class="row">
+					<label>Number rows advertisement should occupy</label>
+					<div class="input-field col s12">
+						<p class="range-field">
+							 <input type="range" id="rows" name="rows" min="0" max="10" />
+						</p>
+					</div>
+				</div>
 
-                <div class="row">
-                    <label>Do you want us to design your advertisment</label>
-                    <div class="input-field col s12">
-                        <input id="yes" type="radio" name="ownad" value="yes">
-                        <label for="yes">Yes</label>
-                        <input id="no" type="radio" name="ownad" value="no">
-                        <label for="no">No</label>
-                    </div>
-                </div>
+				<div class="row">
+					<label>Do you want us to design your advertisment</label>
+					<div class="input-field col s12">
+						<input id="yes" type="radio" name="ownad" value="yes">
+						<label for="yes">Yes</label>
+						<input id="no" type="radio" name="ownad" value="no">
+						<label for="no">No</label>
+					</div>
+				</div>
 
-                <div class="row">
-                    <div class="file-field input-field">
-                        <div class="btn">
-                            <span id="filespan">Upload advertisement</span>
-                            <input id="file" class="red" type="file">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
-                        </div>
-                    </div>
-                </div>
+				<div class="row">
+					<div class="file-field input-field">
+						<div class="btn">
+							<span id="filespan">Upload advertisement</span>
+							<input id="file" class="red" type="file">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text">
+						</div>
+					</div>
+				</div>
 
-                <div class="row">
-                    <div class="input-field col s12">
-                        <button id="submit" class="btn cyan waves-effect waves-light right" type="submit" name="action">
-                            Submit
-                            <i class="mdi-content-send right"></i>
-                        </button>
-                    </div>
-                </div>
+				<div class="row">
+					<div class="input-field col s12">
+						<button id="submit" class="btn cyan waves-effect waves-light right" type="submit" name="action">
+							Submit
+							<i class="mdi-content-send right"></i>
+						</button>
+					</div>
+				</div>
 
-            </form>
-        </div>
-    </div>
+			</form>
+		</div>
+	</div>
 </div>
 <script>
-    $('#yes').click(function() {
-        var file = $('#file');
-        file.attr('disabled', 'disabled');
-        document.getElementById('filespan').innerText = 'DISABLED';
-    });
+	$('#yes').click(function() {
+		var file = $('#file');
+		file.attr('disabled', 'disabled');
+		document.getElementById('filespan').innerText = 'DISABLED';
+	});
 
-    $('#no').click(function() {
-        var file = $('#file');
-        file.removeAttr('disabled');
-        document.getElementById('filespan').innerText = 'Upload advertisement';
-    });
+	$('#no').click(function() {
+		var file = $('#file');
+		file.removeAttr('disabled');
+		document.getElementById('filespan').innerText = 'Upload advertisement';
+	});
 
-    $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 15 // Creates a dropdown of 15 years to control year
-    });
+	$('.datepicker').pickadate({
+		selectMonths: true, // Creates a dropdown to control month
+		selectYears: 15 // Creates a dropdown of 15 years to control year
+	});
 </script>
 </body>
 
