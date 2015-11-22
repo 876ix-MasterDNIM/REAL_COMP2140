@@ -48,11 +48,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s6 datepick">
                         <label>Select start date</label>
                         <input name="startdate" id="startdate" type="date" class="datepicker">
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col s6 datepick">
                         <label>Select end date</label>
                         <input name="enddate" id="enddate" type="date" class="datepicker">
                     </div>
@@ -61,27 +61,28 @@
                 <div class="row">
                     <label id="info">Select days advertisement should be publicized</label>
                     <div class="input-field col s12">
-                        <input id="sun" type="checkbox" name="Sunday" class="required"
+
+                        <input id="sun" type="checkbox" name="day"
                         title="Please check at least one day">
                         <label for="sun">Sunday</label>
 
 
-                        <input id="mon" type="checkbox" name="Monday">
+                        <input id="mon" type="checkbox" name="day">
                         <label for="mon">Monday</label>
 
-                        <input id="tue" type="checkbox" name="Tuesday">
+                        <input id="tue" type="checkbox" name="day">
                         <label for="tue">Tuesday</label>
                         <p>
-                            <input id="wed" type="checkbox" name="Wednesday">
+                            <input id="wed" type="checkbox" name="day">
                             <label for="wed">Wednesday</label>
 
-                            <input id="thur" type="checkbox" name="Thursday">
+                            <input id="thur" type="checkbox" name="day">
                             <label for="thur">Thursday</label>
 
-                            <input id="fri" type="checkbox" name="Friday">
+                            <input id="fri" type="checkbox" name="day">
                             <label for="fri">Friday</label>
 
-                            <input id="sat" type="checkbox" name="Saturday">
+                            <input id="sat" type="checkbox" name="day">
                             <label for="sat">Saturday</label>
                         </p>
                     </div>
@@ -92,11 +93,11 @@
                         <label>Select color of advertisement</label>
                     </p>
                     <div class="input-field col 12">
-                        <input id="red" type="checkbox" name="Red" class"required" title="Please select a color">
+                        <input id="red" type="checkbox" name="color" title="Please select a color">
                         <label class="red-text" for="red">Red</label>
-                        <input id="yellow" type="checkbox" name="Yellow">
+                        <input id="yellow" type="checkbox" name="color">
                         <label class="yellow-text" for="yellow">Yellow</label>
-                        <input id="blue" type="checkbox" name="Blue">
+                        <input id="blue" type="checkbox" name="color">
                         <label class="blue-text" for="blue">Blue</label>
                     </div>
                 </div>
@@ -104,8 +105,8 @@
                 <div class="row">
                     <label>Select size of advertisement</label>
                     <div class="input-field col s12">
-                        <select name="size" class="browser-default">
-                            <option disabled selected>
+                        <select name="size" class="browser-default" id="size">
+                            <option id="default" disabled selected>
                                 Size
                             </option>
                             <option>
@@ -121,17 +122,18 @@
                 <div class="row">
                     <label>Do you want us to design your advertisment</label>
                     <div class="input-field col s12">
-                        <input id="yes" type="radio" name="ownad" value="yes" class="required"
+                       <input id="yes" type="radio" name="ownad" value="yes" class="required"
                         title="Please select an option">
                         <label for="yes">Yes</label>
                         <input id="no" type="radio" name="ownad" value="no">
                         <label for="no">No</label>
+
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="file-field input-field">
-                        <div class="btn">
+                        <div class="btn" id="upload">
                             <span id="filespan">Upload advertisement</span>
                             <input id="file" class="red" type="file">
                         </div>
@@ -165,12 +167,12 @@
         var file = $('#file');
         file.removeAttr('disabled');
         document.getElementById('filespan').innerText = 'Upload advertisement';
-    }); */
+    });
 
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15 // Creates a dropdown of 15 years to control year
-    });
+    }); */
 </script>
 </body>
 

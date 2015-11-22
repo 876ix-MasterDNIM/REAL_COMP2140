@@ -1,9 +1,13 @@
 $(document).ready(function() {
    var validJcanPhoneNum = /^(\(876\)[\s]?|^1?876[\s-]?)?\d{3}[\s-]?\d{4}$/; // idk regex? lel.
 
-   $.validator.addMethod('valueNotEquals', function(value, element, param) {
-      return (value == param);
-   }, 'You haven\'t selected a credit card');
+   $('#cctype').on('change', function(){
+      $(this).focusout();
+   });
+
+   // $.validator.addMethod('valueNotEquals', function(value, element, param) {
+   //   return (value == param);
+   // }, 'You haven\'t selected a credit card');
 
    $.validator.addMethod('phoneNumberCheck', function(value, element) {
       return validJcanPhoneNum.test(value);
@@ -35,7 +39,8 @@ $(document).ready(function() {
             number: true
          },
          ctype: {
-            valueNotEquals: 'Please choose a credit card'
+            required: true,
+            // valueNotEquals: 'Please choose a credit card'
          },
          telephone: {
             required: true,
@@ -65,7 +70,7 @@ $(document).ready(function() {
             number: 'Value is not a number'
         },
          ctype: {
-            // required: 'Must select a credit card'
+            required: 'Must select a credit card'
         },
          telephone: {
             required: 'Please enter your phone number',
