@@ -6,9 +6,12 @@
     <title>Advertisement request form</title>
     <link href="styles/materialize.css" type="text/css" rel="stylesheet">
     <link href="styles/styles.css" type="text/css" rel="stylesheet">
+    <link href="styles/errors.css" type="text/css" rel="stylesheet">
     <script src="scripts/jquery-2.1.4.min.js" type="application/javascript"></script>
     <script src="scripts/materialize.min.js" type="application/javascript"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="scripts/purchase.js"></script>
 </head>
 
@@ -152,17 +155,17 @@
     </div>
 </div>
 <script>
-    $('#yes').click(function() {
+    /*$('#yes').click(function() {
         var file = $('#file');
         file.attr('disabled', 'disabled');
-        document.getElementById('filespan').innerText = 'DISABLED';
+        // document.getElementById('filespan').innerText = 'DISABLED';
     });
 
     $('#no').click(function() {
         var file = $('#file');
         file.removeAttr('disabled');
         document.getElementById('filespan').innerText = 'Upload advertisement';
-    });
+    }); */
 
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month

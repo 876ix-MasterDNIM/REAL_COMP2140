@@ -1,0 +1,23 @@
+/* use this to style the error messages, i suck at CSS so can't */
+
+#signupform label.error {
+   font-size: 0.8em;
+   color: #F00;
+   font-weight: bold;
+   display: block;
+}
+
+#purchaseform label.error {
+   font-size: 0.8em;
+   color: #F00;
+   font-weight: bold;
+   display: block;
+   padding-bottom: 15px;
+}
+
+#login label.error {
+   font-size: 0.8em;
+   color: #F00;
+   font-weight: bold;
+   display: block;
+}

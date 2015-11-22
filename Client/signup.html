@@ -5,6 +5,7 @@
     <title>Sign up</title>
     <link href="styles/materialize.css" type="text/css" rel="stylesheet">
     <link href="styles/styles.css" type="text/css" rel="stylesheet">
+    <link href="styles/errors.css" type="text/css" rel="stylesheet">
     <script src="scripts/jquery-2.1.4.min.js" type="application/javascript"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 
@@ -87,7 +88,7 @@
                         Credit Card Type</label>
                     <div class="input-field col s4">
                         <select class="browser-default" name="ctype">
-                            <option disabled selected>
+                            <option id="defaultop" value="" disabled selected>
                                 Choose credit card type
                             </option>
                             <option value="1">
