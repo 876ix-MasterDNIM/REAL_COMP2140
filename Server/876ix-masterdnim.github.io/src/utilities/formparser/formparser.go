@@ -61,8 +61,10 @@ func ParsePurchaseForm(request *http.Request) datastructures.Purchase {
 	purchaseStruct.EndDate = strings.Join(request.Form["enddate"], "")
 	purchaseStruct.ShowDates = days(request)
 	purchaseStruct.AdColors = colors(request)
-	purchaseStruct.Columns, _ = strconv.ParseFloat(strings.Join(request.Form["columns"], ""), 10)
-	purchaseStruct.Rows, _ = strconv.ParseFloat(strings.Join(request.Form["rows"], ""), 10)
+	temp, _ := strconv.ParseFloat(strings.Join(request.Form["columns"], ""), 10)
+	temp2, _ := strconv.ParseFloat(strings.Join(request.Form["rows"], ""), 10)
+	purchaseStruct.Columns = int8(temp)
+	purchaseStruct.Rows = int8(temp2)
 	purchaseStruct.DesignForYou = strings.Join(request.Form["ownad"], "")
 
 	return *purchaseStruct

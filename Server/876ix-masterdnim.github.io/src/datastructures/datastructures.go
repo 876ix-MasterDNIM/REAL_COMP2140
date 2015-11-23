@@ -37,8 +37,8 @@ type Purchase struct {
 	EndDate      string
 	ShowDates    string
 	AdColors     string
-	Columns      float64
-	Rows         float64
+	Columns      int8
+	Rows         int8
 	DesignForYou string
 }
 

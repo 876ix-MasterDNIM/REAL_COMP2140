@@ -1,4 +1,5 @@
 package pricecalc
+
 import (
 	"sort"
 	"strconv"
@@ -15,7 +16,7 @@ import (
  * @param {[type]} purchaseReport datastructures.Report      [description]
  */
 func AdCost(purchaseInfo datastructures.Purchase, companyInfo datastructures.CompanyInfo, purchaseReport datastructures.Report) float64 {
-	cost := calcDaysCost(purchaseInfo, companyInfo, purchaseReport) * purchaseInfo.Columns * purchaseInfo.Rows
+	cost := calcDaysCost(purchaseInfo, companyInfo, purchaseReport) * float64(purchaseInfo.Columns) * float64(purchaseInfo.Rows)
 	cost += float64(5000 * len(strings.Split(purchaseInfo.AdColors, " ")))
 	if purchaseInfo.DesignForYou == "yes" {
 		cost += float64(100 * purchaseInfo.Columns * purchaseInfo.Rows)
@@ -31,31 +32,33 @@ func AdCost(purchaseInfo datastructures.Purchase, companyInfo datastructures.Com
  * @return {[type]}   [description]
  */
 func monthToTime(m string) time.Month {
-	if m == "January" {
+	switch m {
+	case "January":
 		return time.January
-	} else if m == "February" {
+	case "February":
 		return time.February
-	} else if m == "March" {
+	case "March":
 		return time.March
-	} else if m == "April" {
+	case "April":
 		return time.April
-	} else if m == "May" {
+	case "May":
 		return time.May
-	} else if m == "June" {
+	case "June":
 		return time.June
-	} else if m == "July" {
+	case "July":
 		return time.July
-	} else if m == "August" {
+	case "August":
 		return time.August
-	} else if m == "September" {
+	case "September":
 		return time.September
-	} else if m == "October" {
+	case "October":
 		return time.October
-	} else if m == "November" {
+
+	case "November":
 		return time.November
-	} else if m == "December" {
+	case "December":
 		return time.December
-	} else {
+	default:
 		return time.January
 	}
 }
@@ -111,22 +114,22 @@ func calcDaysCost(purchaseInfo datastructures.Purchase, companyInfo datastructur
 	day, _ := strconv.ParseFloat(utilArrayStart[0], 10)
 	day2, _ := strconv.ParseFloat(utilArrayEnd[0], 10)
 
-	s := time.Date(int(year), monthToTime(utilArrayStart[1]), int(day), 23, 0, 0, 0, time.UTC)
-	e := time.Date(int(year2), monthToTime(utilArrayEnd[1]), int(day2), 23, 0, 0, 0, time.UTC)
+	start := time.Date(int(year), monthToTime(utilArrayStart[1]), int(day), 23, 0, 0, 0, time.UTC)
+	end := time.Date(int(year2), monthToTime(utilArrayEnd[1]), int(day2), 23, 0, 0, 0, time.UTC)
 
-	modifiedE := e.AddDate(0, 0, 1)
+	endPlusOne := end.AddDate(0, 0, 1)
 
-	for !s.Equal(modifiedE) {
-		if validDay(myDays, int(s.Weekday())) {
-			price += dayToCost[int(s.Weekday())]
+	for !start.Equal(endPlusOne) {
+		if validDay(myDays, int(start.Weekday())) {
+			price += dayToCost[int(start.Weekday())]
 		}
-		s = s.AddDate(0, 0, 1)
+		start = start.AddDate(0, 0, 1)
 	}
 	return price
 }
 
 /**
- * Checks if day is a valid day. I.E. a day that the customer has request ad to be shown
+ * Checks if day is a valid day. I.E. a day that the customer has requested an ad to be shown
  * @param  {[type]} days []int         [description]
  * @param  {[type]} day  int           [description]
  * @return {[type]}      [description]

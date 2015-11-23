@@ -1,14 +1,12 @@
 package serversetup
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 	"../datastructures"
 	"../utilities/databaseutils"
 	"../utilities/formparser"
 	"../utilities/servehtml"
-	"strings"
 	"../utilities/pricecalc"
 )
 
@@ -140,7 +138,6 @@ func login(response http.ResponseWriter, request *http.Request) {
 	switch method {
 
 	case "GET":
-		fmt.Println(companyInfo.SundayRate)
 		path := "/Users/LeaderOfTheNewSchool/WebstormProjects/REAL_COMP2140/Client/login.html"
 		servehtml.ServeHtml(path, response)
 
@@ -176,7 +173,6 @@ func purchase(response http.ResponseWriter, request *http.Request) {
 	case "POST":
 		purchaseInfo = formparser.ParsePurchaseForm(request)
 		purchaseReport.PurchaseInfo = purchaseInfo
-		fmt.Println(purchaseInfo.ShowDates)
 		http.Redirect(response, request, "/report", 302)
 	}
 }
